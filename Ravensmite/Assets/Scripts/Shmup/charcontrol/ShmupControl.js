@@ -16,7 +16,7 @@ function Update () {
 	var horz = Input.GetAxis("Horizontal") * speed * Time.deltaTime; // left/right
 	var vert = Input.GetAxis("Coaxial") * speed * Time.deltaTime; // up/down
 	//Debug.Log("" + horz + "," + vert);
-	var z =  Mathf.Clamp(transform.position.z + horz, leftbound, rightbound);
+	var z = Mathf.Clamp(transform.position.z + horz, leftbound, rightbound);
 	var y = Mathf.Clamp(transform.position.y + vert, bottombound, topbound);
 	rigidbody.MovePosition(Vector3(0, y, z));
 	

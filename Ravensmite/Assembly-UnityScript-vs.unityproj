@@ -5,7 +5,7 @@
 	<Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
 	<ProductVersion>10.0.20506</ProductVersion>
 	<SchemaVersion>2.0</SchemaVersion>
-	<ProjectGuid>{7175EC60-E186-4032-293D-17DF26D2B49D}</ProjectGuid>
+	<ProjectGuid>{D682F2A4-E39F-9ED7-93D5-71EBC8A628F9}</ProjectGuid>
 	<OutputType>Library</OutputType>
 	<AppDesignerFolder>Properties</AppDesignerFolder>
 	<RootNamespace></RootNamespace>
@@ -44,20 +44,19 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Scripts\Bullet.js" />
-     <Compile Include="Assets\Scripts\DrawLine.js" />
-     <Compile Include="Assets\Scripts\Enemy\BossPathLoop.js" />
-     <Compile Include="Assets\Scripts\Enemy\EnemySpawn.js" />
-     <Compile Include="Assets\Scripts\Enemy\FiringPattern1.js" />
-     <Compile Include="Assets\Scripts\Enemy\LevelBoss.js" />
-     <Compile Include="Assets\Scripts\Enemy\MoveFollowPath.js" />
-     <Compile Include="Assets\Scripts\Enemy\MoveStraight.js" />
-     <Compile Include="Assets\Scripts\Life.js" />
-     <Compile Include="Assets\Scripts\MainMenu.js" />
      <Compile Include="Assets\Scripts\Menu\Menu.js" />
-     <Compile Include="Assets\Scripts\charcontrol\CamFollow.js" />
-     <Compile Include="Assets\Scripts\charcontrol\PlaneFiring.js" />
-     <Compile Include="Assets\Scripts\charcontrol\ShmupControl.js" />
+     <Compile Include="Assets\Scripts\Shmup\Bullet.js" />
+     <Compile Include="Assets\Scripts\Shmup\Enemy\BossPathLoop.js" />
+     <Compile Include="Assets\Scripts\Shmup\Enemy\EnemySpawn.js" />
+     <Compile Include="Assets\Scripts\Shmup\Enemy\FiringPattern1.js" />
+     <Compile Include="Assets\Scripts\Shmup\Enemy\LevelBoss.js" />
+     <Compile Include="Assets\Scripts\Shmup\Enemy\MoveFollowPath.js" />
+     <Compile Include="Assets\Scripts\Shmup\Enemy\MoveStraight.js" />
+     <Compile Include="Assets\Scripts\Shmup\LevelControl.js" />
+     <Compile Include="Assets\Scripts\Shmup\Life.js" />
+     <Compile Include="Assets\Scripts\Shmup\charcontrol\CamFollow.js" />
+     <Compile Include="Assets\Scripts\Shmup\charcontrol\PlaneFiring.js" />
+     <Compile Include="Assets\Scripts\Shmup\charcontrol\ShmupControl.js" />
      <None Include="Assets\Standard Assets\Toon Shading\Sources\Shaders\Toony-Basic.shader" />
      <None Include="Assets\Standard Assets\Particles\Sources\Shaders\Particle Alpha Blend (Queue +100).shader" />
      <None Include="Assets\Standard Assets\Skyboxes\_skybox info.txt" />
@@ -71,7 +70,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="Assembly-CSharp-firstpass-vs.csproj">
-      <Project>{4DB66AD9-D07B-0DC0-1C92-F1362FE67716}</Project>      <Name>Assembly-CSharp-firstpass-vs</Name>    </ProjectReference>
+      <Project>{F33F3E06-40C1-65BA-83C3-256224E177E2}</Project>      <Name>Assembly-CSharp-firstpass-vs</Name>    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
