@@ -16,7 +16,11 @@ function Update () {
 }
 
 function OnTriggerEnter(collision: Collider) {
-	var collObj = collision.transform.parent.gameObject;
+	try {
+		var collObj = collision.transform.parent.gameObject;
+	} catch (e) {
+		//Placeholder to silence the console
+	}
 	if(collObj == null || collObj == owner || collObj.CompareTag(team) || collObj.CompareTag("Bullet"))
 		return;
 	//Debug.Log("Shot a " + collision.gameObject.name);

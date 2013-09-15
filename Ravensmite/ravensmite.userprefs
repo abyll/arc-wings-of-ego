@@ -1,11 +1,14 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Shmup\charcontrol\ShmupControl.js">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Shmup\charcontrol\PlaneFiring.js">
     <Files>
+      <File FileName="Assets\Scripts\Shmup\charcontrol\ShmupControl.js" Line="8" Column="14" />
       <File FileName="Assets\Scripts\Shmup\charcontrol\CamFollow.js" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Shmup\Bullet.js" Line="25" Column="2" />
-      <File FileName="Assets\Scripts\Shmup\charcontrol\ShmupControl.js" Line="36" Column="1" />
-      <File FileName="Assets\Scripts\Shmup\charcontrol\PlaneFiring.js" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Shmup\Bullet.js" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Shmup\charcontrol\PlaneFiring.js" Line="51" Column="27" />
+      <File FileName="Assets\Scripts\Menu\Menu.js" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Shmup\LevelControl.js" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Shmup\Life.js" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
