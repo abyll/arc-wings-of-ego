@@ -14,20 +14,19 @@ function Start () {
 
 function Update () {
 	var horz = Input.GetAxis("Horizontal") * speed * Time.deltaTime; // left/right
-	var vert = Input.GetAxis("Coaxial") * speed * Time.deltaTime; // up/down
+	var vert = Input.GetAxis("Vertical") * speed * Time.deltaTime; // up/down
 	//Debug.Log("" + horz + "," + vert);
-	// var z =  Mathf.Clamp(transform.position.z + horz, leftbound, rightbound);
-	// var y = Mathf.Clamp(transform.position.y + vert, bottombound, topbound);
-	// rigidbody.MovePosition(Vector3(0, y, z));
-	
-	var locZ = Mathf.Clamp(transform.localPosition.z + horz, leftbound, rightbound);
-	var locY = Mathf.Clamp(transform.localPosition.y + vert, bottombound, topbound);
-	
-	rigidbody.MovePosition(transform.parent.TransformPoint(0, locY, locZ));
+	var z = Mathf.Clamp(transform.position.z + horz, leftbound, rightbound);
+	var y = Mathf.Clamp(transform.position.y + vert, bottombound, topbound);
+	try {
+	rigidbody.MovePosition(Vector3(0, y, z));
+	} catch (e) {
+		//Placeholder to silence the console
+	}
 	
 	// Tilting code
 	var tiltAroundX= Input.GetAxis("Horizontal") * tiltAngle;
-	var tiltAroundZ = -Input.GetAxis("Coaxial") * tiltAngle;
+	var tiltAroundZ = -Input.GetAxis("Vertical") * tiltAngle;
 	var target = Quaternion.Euler (tiltAroundZ, 0, 0);
 	// Dampen towards the target rotation
 	transform.rotation = Quaternion.Slerp(transform.rotation, target, Time.deltaTime * rotateSpeed);
@@ -36,5 +35,5 @@ function Update () {
 
 function Die() { // Player Death
 	Destroy(gameObject);
-	Application.LoadLevel("MainMenu");
+	Application.LoadLevel("mainmenu");
 }
