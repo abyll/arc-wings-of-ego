@@ -7,6 +7,8 @@ var team: String;
 var canHurtOwner: boolean = false;
 var canHurtTeam: boolean = false;
 
+var explosion: ParticleEmitter;
+
 function Start () {
 	
 }
@@ -24,6 +26,12 @@ function OnTriggerEnter(collision: Collider) {
 	if(collObj == null || collObj == owner || collObj.CompareTag(team) || collObj.CompareTag("Bullet"))
 		return;
 	//Debug.Log("Shot a " + collision.gameObject.name);
+	
+	// Flame effect on bullet collision
+	var flame = Instantiate(explosion, transform.position, transform.rotation);
+	Destroy(flame, 1);
+	
+	
 	collObj.GetComponent(Life).Damage(damage);
 	Destroy(gameObject);
 }
