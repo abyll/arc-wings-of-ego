@@ -16,9 +16,14 @@ function Update () {
 	var horz = Input.GetAxis("Horizontal") * speed * Time.deltaTime; // left/right
 	var vert = Input.GetAxis("Coaxial") * speed * Time.deltaTime; // up/down
 	//Debug.Log("" + horz + "," + vert);
-	var z = Mathf.Clamp(transform.position.z + horz, leftbound, rightbound);
-	var y = Mathf.Clamp(transform.position.y + vert, bottombound, topbound);
-	rigidbody.MovePosition(Vector3(0, y, z));
+	// var z =  Mathf.Clamp(transform.position.z + horz, leftbound, rightbound);
+	// var y = Mathf.Clamp(transform.position.y + vert, bottombound, topbound);
+	// rigidbody.MovePosition(Vector3(0, y, z));
+	
+	var locZ = Mathf.Clamp(transform.localPosition.z + horz, leftbound, rightbound);
+	var locY = Mathf.Clamp(transform.localPosition.y + vert, bottombound, topbound);
+	
+	rigidbody.MovePosition(transform.parent.TransformPoint(0, locY, locZ));
 	
 	// Tilting code
 	var tiltAroundX= Input.GetAxis("Horizontal") * tiltAngle;

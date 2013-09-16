@@ -2,10 +2,10 @@
 #pragma strict
 
 public var speed: float=0.2;
+var pathscript: iTweenPath;
 
 function Start () {
-	var tweenpath = gameObject.GetComponent("iTweenPath") as iTweenPath;
-	var path = tweenpath.nodes.ToArray();
+	var path = pathscript.nodes.ToArray();
 	iTween.MoveTo(gameObject, iTween.Hash("path", path,"time",8,"easetype","linear","orienttopath",true));
 }
 
