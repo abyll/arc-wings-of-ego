@@ -1,7 +1,7 @@
 // Move forward at set speed. Despawn when off screen
 #pragma strict
 
-public var speed: float=0.2;
+public var speed: float=10;
 
 
 function Start () {

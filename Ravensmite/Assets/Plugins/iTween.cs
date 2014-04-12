@@ -3531,7 +3531,23 @@ public class iTween : MonoBehaviour{
 				suppliedPath[i]=temp[i].position;
 			}
 		}
-		
+
+		//HOTFIX: Force isLocal argument to work
+//		bool isLocal;
+//		
+//		if(tweenArguments.Contains("islocal")){
+//			isLocal = (bool)tweenArguments["islocal"];
+//		}else{
+//			isLocal = Defaults.isLocal;	
+//		}
+//		
+//		Vector3 bug;
+//		if (isLocal) {
+//			bug = transform.localPosition;
+//		} else {
+//			bug = transform.position;
+//		}
+
 		//do we need to plot a path to get to the beginning of the supplied path?		
 		bool plotStart;
 		int offset;

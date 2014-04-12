@@ -73,7 +73,7 @@ function OnGUI() {
 			
 			if ( GUILayout.Button ( "Start Server" ) ) 
 			{
-				Network.InitializeServer ( 4, defaultPort );
+				Network.InitializeServer( 4, defaultPort, true );
 			}
 			if ( GUILayout.Button ( "Back" ) )
 			{

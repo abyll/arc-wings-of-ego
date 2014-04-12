@@ -8,9 +8,7 @@ function Update () {
 
 }
 
-
 function Die() { // Boss Death
-	Debug.Log("You won!");
 	Destroy(gameObject);
-	Application.LoadLevel("MainMenu");
+	GameObject.FindGameObjectWithTag("Level").SendMessage("EndLevel");
 }

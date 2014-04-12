@@ -1,6 +1,6 @@
 ravensmite/Library/
 ravensmite/Temp/
-ravensmite/ravensmite_Data/
+ravensmite/*_Data/
 ravensmite/ravensmite.7z
 *.exe
 Assembly*

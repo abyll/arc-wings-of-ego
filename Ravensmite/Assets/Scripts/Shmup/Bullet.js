@@ -6,11 +6,13 @@ var owner: GameObject;
 var team: String;
 var canHurtOwner: boolean = false;
 var canHurtTeam: boolean = false;
-
+private var container: Transform;
 var explosion: ParticleEmitter;
 
+
 function Start () {
-	
+	container = GameObject.Find("BulletCont").transform;
+	transform.parent = container;
 }
 
 function Update () {
@@ -18,20 +20,24 @@ function Update () {
 }
 
 function OnTriggerEnter(collision: Collider) {
+	var collObj: GameObject;
 	try {
-		var collObj = collision.transform.parent.gameObject;
+		collObj = collision.transform.parent.gameObject;
 	} catch (e) {
-		//Placeholder to silence the console
+		collObj = collision.transform.gameObject;
 	}
-	if(collObj == null || collObj == owner || collObj.CompareTag(team) || collObj.CompareTag("Bullet"))
+	if(!canHurtOwner && collObj == owner)
 		return;
-	//Debug.Log("Shot a " + collision.gameObject.name);
+	if(!canHurtTeam && collObj.CompareTag(team)) //if(collObj == null || collObj == owner || collObj.CompareTag(team) || collObj.CompareTag("Bullet"))
+		return;
+	Debug.Log("Shot a " + collision.gameObject.name);
 	
 	// Flame effect on bullet collision
 	var flame = Instantiate(explosion, transform.position, transform.rotation);
-	Destroy(flame, 1);
+	flame.transform.parent = container;
 	
-	
-	collObj.GetComponent(Life).Damage(damage);
+	try {
+		collObj.GetComponent(Life).Damage(damage);
+	} catch(e){}
 	Destroy(gameObject);
 }
