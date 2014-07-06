@@ -30,7 +30,7 @@ function OnTriggerEnter(collision: Collider) {
 		return;
 	if(!canHurtTeam && collObj.CompareTag(team)) //if(collObj == null || collObj == owner || collObj.CompareTag(team) || collObj.CompareTag("Bullet"))
 		return;
-	Debug.Log("Shot a " + collision.gameObject.name);
+	//Debug.Log("Shot a " + collision.gameObject.name);
 	
 	// Flame effect on bullet collision
 	var flame = Instantiate(explosion, transform.position, transform.rotation);

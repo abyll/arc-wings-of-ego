@@ -1,9 +1,9 @@
 #pragma strict
 
-var leftbound: float;
-var rightbound: float;
-var topbound: float;
-var bottombound: float;
+var leftbound: Transform;
+var rightbound: Transform;
+var topbound: Transform;
+var bottombound: Transform;
 var speed: float;
 var tiltAngle: float;
 var rotateSpeed: float = 0.5f;
@@ -21,15 +21,16 @@ function FixedUpdate () {
 	var horz = Input.GetAxis("Horizontal") * speed * Time.deltaTime; // left/right
 	var vert = Input.GetAxis("Vertical") * speed * Time.deltaTime; // up/down
 	//Debug.Log("" + horz + "," + vert);
-	var z = Mathf.Clamp(transform.localPosition.z + horz, leftbound, rightbound);
-	var y = Mathf.Clamp(transform.localPosition.y + vert, bottombound, topbound);
-	try {
-	//rigidbody.MovePosition(Vector3(0, y, z)+transform.parent.position);
-	rigidbody.AddForce(Vector3(0,y,z)*50);
+	//var z = Mathf.Clamp(transform.localPosition.z + horz, leftbound.position.z, rightbound.position.z);
+	//var y = Mathf.Clamp(transform.localPosition.y + vert, bottombound.position.y, topbound.position.y);
+	//try {
+	//rigidbody.MovePosition(Vector3(0, y, z));//+transform.parent.position);
+	rigidbody.AddForce(Vector3(0,vert,horz)*500);
 	//transform.localPosition = Vector3(0, y, z);
-	} catch (e) {
+	//} catch (e) {
+		//Debug.Log(e.Message);
 		//Placeholder to silence the console
-	}
+	//}
 	
 	// Tilting code
 	var tiltAroundX= Input.GetAxis("Horizontal") * tiltAngle;

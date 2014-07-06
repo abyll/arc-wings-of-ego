@@ -1,15 +1,20 @@
 #pragma strict
 var scrolls = false;
 var follow_path = false;
+var invert = true;
 var scrollSpeed: float = 8.5;
-var pathtime: float =10;
+var pathtime: float = 10;
 var pathscript: iTweenPath;
-//private var path: Array;
+private var path: Vector3[];
 
 function Start () {
-	var path = pathscript.nodes.ToArray();
+	path = pathscript.nodes.ToArray();
+	if (invert) {
+		for(var i=0; i<path.length; i++)
+			path[i] = -path[i];
+	}
 	if (scrolls && follow_path)
-		iTween.MoveTo(gameObject, iTween.Hash("path",path, "speed",scrollSpeed, "easetype","linear", "LoopType","loop"));
+		iTween.MoveTo(gameObject, iTween.Hash("path",path, "speed",scrollSpeed, "easetype","slow"));
 }
 
 function Update () {
