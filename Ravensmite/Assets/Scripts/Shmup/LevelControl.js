@@ -14,17 +14,21 @@ function Start () {
 			path[i] = -path[i];
 	}
 	if (scrolls && follow_path)
-		iTween.MoveTo(gameObject, iTween.Hash("path",path, "speed",scrollSpeed, "easetype","slow"));
+		iTween.MoveTo(gameObject, iTween.Hash("path",path, "speed",scrollSpeed, "easetype","EaseOutQuart"));
 }
-
+/*
 function Update () {
 	if(scrolls && !follow_path)
 		rigidbody.MovePosition(transform.position + Vector3(0, 0, scrollSpeed * Time.deltaTime));
 	else {
 	}
-}
+}*/
 
 function EndLevel() {
 	Debug.Log("You won!");
+	var playerData = GameObject.FindGameObjectWithTag("PlayerDataContainer").GetComponent(PlayerDataContainer).playerData;
+	var mission = (playerData.missionProgress[Application.loadedLevel-1]);
+	mission.complete = true;
+	playerData.Save();
 	Application.LoadLevel("MainMenu");
 }

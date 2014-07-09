@@ -8,6 +8,3 @@ function Start () {
 	var path = tweenpath.nodes.ToArray();
 	iTween.MoveTo(gameObject, iTween.Hash("path",path, "time",time, "loopType","loop", "easetype","linear", "orienttopath",false));
 }
-
-function Update () {
-}

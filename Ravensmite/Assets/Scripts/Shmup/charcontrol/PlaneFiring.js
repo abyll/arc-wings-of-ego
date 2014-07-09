@@ -7,10 +7,14 @@ var tiltAngle: float;
 private var next_shot: float;
 private var cam: Camera;
 private var container: Transform;
+private var barrel: Transform;
 
 function Start () {
 	cam = GameObject.FindGameObjectWithTag("MainCamera").camera;
 	container = GameObject.Find("BulletCont").transform;
+	barrel = transform.Find("barrel_turret/turret_barrel");
+	if (barrel == null)
+		Debug.Log("Barrel find failed");
 }
 
 function Update () {
@@ -40,6 +44,9 @@ function Update () {
 		next_shot = Time.time + fireRate;
 		Shoot(firePos);
 	}
+	// Aim Cannon
+	barrel.LookAt(cam.ScreenToWorldPoint(MousePos()), Vector3.forward);
+	barrel.Rotate(-90,0,0);
 }
 
 function MousePos() {

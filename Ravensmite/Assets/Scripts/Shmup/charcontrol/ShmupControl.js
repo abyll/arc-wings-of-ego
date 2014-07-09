@@ -8,13 +8,9 @@ var speed: float;
 var tiltAngle: float;
 var rotateSpeed: float = 0.5f;
 private var cam: Camera;
-private var barrel: Transform;
 
 function Start () {
 	cam = GameObject.FindGameObjectWithTag("MainCamera").camera;
-	barrel = transform.Find("barrel_turret/turret_barrel");
-	if (barrel == null)
-		Debug.Log("Barrel find failed");
 }
 
 function FixedUpdate () {
@@ -32,6 +28,10 @@ function FixedUpdate () {
 		//Placeholder to silence the console
 	//}
 	
+}
+
+function Update() {
+
 	// Tilting code
 	var tiltAroundX= Input.GetAxis("Horizontal") * tiltAngle;
 	var tiltAroundZ = -Input.GetAxis("Vertical") * tiltAngle;
@@ -39,11 +39,6 @@ function FixedUpdate () {
 	// Dampen towards the target rotation
 	transform.rotation = Quaternion.Slerp(transform.rotation, target, Time.deltaTime * rotateSpeed);
 	
-	// Aim Cannon
-	var mousePos = Input.mousePosition;
-	mousePos.z = cam.transform.position.x;
-	barrel.LookAt(cam.ScreenToWorldPoint(mousePos), Vector3.forward);
-	barrel.Rotate(-90,0,0);
 }
 
 function Die() { // Player Death
