@@ -3,10 +3,6 @@
 var HP: float=5.0f;
 var invuln: boolean=false;
 
-function Start () {
-
-}
-
 function Update () {
 
 }

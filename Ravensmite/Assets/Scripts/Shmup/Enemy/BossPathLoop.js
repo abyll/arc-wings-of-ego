@@ -1,4 +1,3 @@
-// Move forward at set speed. Despawn when off screen
 #pragma strict
 
 public var time: float=8;

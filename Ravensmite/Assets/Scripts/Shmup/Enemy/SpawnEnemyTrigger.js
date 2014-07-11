@@ -1,6 +1,7 @@
 ﻿#pragma strict
 
 var enemyToSpawn: GameObject;
+var pointenabled = false;
 private var triggered = false;
 private var container: Transform;
 
@@ -10,7 +11,8 @@ function Start () {
 }
 
 function OnTriggerEnter(other: Collider) {
-	Debug.Log("Spawn triggered");
+	if(!pointenabled) 
+		return;
 	//Instantiate(enemyToSpawn, transform.position, transform.rotation);
 	if(!triggered) {
 		triggered = true;
